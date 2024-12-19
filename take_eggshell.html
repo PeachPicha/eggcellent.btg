@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egg Color Detection App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-frame">
+        <div class="upload-container">
+            <img src="images/Button_1_Eggshell.png" alt="Eggshell Logo" class="eggshell-logo">
+            <label for="fileInput" class="upload-button">
+                <input 
+                    type="file" 
+                    id="fileInput" 
+                    accept=".jpg" 
+                    onchange="handleFileUpload(event)">
+            </label>
+        </div>
+        <button id="next-button_2" class="next-button_2" onclick ="location.href='results.html'">Next</button>
+        </div>
+    </div>
+    <script>
+        async function handleFileUpload(event) {
+            const file = event.target.files[0]; // Access the uploaded file
+            if (file) {
+                const reader = new FileReader();
+
+                // Process the uploaded file
+                reader.onload = function(e) {
+                    const base64Image = e.target.result; // Base64 encoded image
+                    navigateToResultsPage(base64Image); // Navigate to the results page
+                };
+
+                reader.readAsDataURL(file); // Convert the file to a base64 string
+            }
+        }
+
+        function navigateToResultsPage(imageBase64) {
+            // Pass the base64 image to the results page using a query parameter
+            const queryString = `?image=${encodeURIComponent(imageBase64)}`;
+            window.location.href = `results.html${queryString}`;
+        }
+    </script>
+    <script>
+        const eggshellScores = [
+            { score: 0, R: 255, G: 255, B: 255 },
+            { score: 1, R: 220, G: 187, B: 133 },
+            { score: 2, R: 221, G: 172, B: 105 },
+            { score: 3, R: 212, G: 150, B: 93 },
+            { score: 4, R: 179, G: 108, B: 62 },
+            { score: 5, R: 165, G: 92, B: 48 },
+            { score: 6, R: 152, G: 75, B: 33 },
+            { score: 7, R: 145, G: 73, B: 25 },
+            { score: 8, R: 124, G: 62, B: 21 }
+        ];
+
+        async function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    const img = new Image();
+                    img.src = e.target.result;
+
+                    img.onload = function() {
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        ctx.drawImage(img, 0, 0);
+
+                        // Detect the color and navigate to results page
+                        const detectionResult = detectEggshell(canvas, ctx);
+                        navigateToResultsPage(detectionResult);
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function detectEggshell(canvas, ctx) {
+            const width = canvas.width;
+            const height = canvas.height;
+
+            // Simulate detection of the center of the oval
+            const centerX = Math.floor(width / 2);
+            const centerY = Math.floor(height / 2);
+
+            // Extract the RGB values at the center
+            const pixelData = ctx.getImageData(centerX, centerY, 1, 1).data;
+            const r = pixelData[0];
+            const g = pixelData[1];
+            const b = pixelData[2];
+
+            // Calculate the closest score using Euclidean distance
+            const closestScore = calculateClosestScore(r, g, b);
+
+            return { r, g, b, closestScore };
+        }
+
+        function calculateClosestScore(r, g, b) {
+            let minDistance = Infinity;
+            let closestScore = null;
+
+            for (const score of eggshellScores) {
+                const distance = Math.sqrt(
+                    Math.pow(r - score.R, 2) +
+                    Math.pow(g - score.G, 2) +
+                    Math.pow(b - score.B, 2)
+                );
+
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestScore = score.score;
+                }
+            }
+
+            return closestScore;
+        }
+
+        function navigateToResultsPage(result) {
+            const queryString = `?r=${result.r}&g=${result.g}&b=${result.b}&score=${result.closestScore}`;
+            window.location.href = `results.html${queryString}`;
+        }
+    </script>
+</body>
+</html>

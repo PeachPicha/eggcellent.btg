@@ -1,0 +1,291 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px; /* Space between buttons */
+}
+
+.company-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+.eggshell-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.yolk-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+button {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    border: 1px solid #BEBEBE;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #e0e0e0;
+}
+#button_1, #button_2 {
+    background-size: contain;
+    text-indent: -9999px;
+}
+#button_1 {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    border: 1px solid #BEBEBE;
+    background: url('images/Button_1_Eggshell.png') no-repeat center center;
+    background-size: contain;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+#button_2 {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    border: 1px solid #BEBEBE;
+    background: url('images/Button_2_Yolk.png') no-repeat center center;
+    background-size: contain;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+.app-frame {
+    width: 20%; /* Set width to 1440px */
+    height: 75%; /* Set height to 3120px */
+    background-color: #ffffff;
+    border: 1px solid #BEBEBE;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
+    padding: 20px;
+    margin: 0 auto; /* Center the frame horizontally within the viewport */
+}
+h1 {
+    color: #D4AC0D; /* Change text color to #D4AC0D */
+    text-decoration: underline; /* Add underline to the text */
+    font-size: 24px; /* Adjust the font size if needed */
+    margin-bottom: 20px; /* Space below the title */
+}
+.selection-container {
+    margin-top: 20px;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #BEBEBE;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.next-button_1 {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: none; /* Removes any default border */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    font-size: 16px; /* Adjust font size */
+    cursor: pointer;
+    display: block;
+    margin: 20px auto; /* Center the button and add spacing */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    text-align: center; /* Ensure text is centered */
+    line-height: 40px; /* Vertically center the text */
+}
+.next-button_1 {
+    width: 100px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #BEBEBE;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.next-button_2{
+    width: 100px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #BEBEBE;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.next-button_2:hover {
+    background-color: #45a049;
+}
+.farm-input {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.house-input {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.age-input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.number-input {
+    width: 80px; /* Adjust width as needed */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #BEBEBE;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-right: 5px; /* Space between input and "Wks" */
+}
+.age-unit {
+    font-size: 16px;
+    color: #333;
+}
+.icon-title-container {
+    text-align: center;
+    margin-bottom: 20px; /* Adjust the space below the icon and title as needed */
+}
+.content-container-eggshell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px; /* Limit content width */
+    width: 100%; /* Ensure it fills available space */
+    height: 100%;
+    padding: 20px; /* Equal padding on all sides */
+    background-color: #FFE5B4; /* Light orange background for the box */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Include padding in width calculation */
+    justify-content: center;
+}
+.eggshell_main-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+.app-footer {
+    margin-top: 140px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+.get-start-button-eggshell {
+    display: block;
+    margin: 20px;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FFA500; /* Orange color */
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.get-start-button-eggshell:hover {
+    background-color: #FF8C00; /* Darker orange on hover */
+}
+.content-container-yolk {
+    text-align: center;
+    margin-top: 50px;
+}
+#button_take_egg {
+    width: 240px;
+    height: 60px;
+    border-radius: 10px;
+    border: 1px solid #BEBEBE;
+    background: url('images/take_egg.png') no-repeat center center;
+    background-size: contain;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+.upload-button {
+    display: block;
+    margin: 65px auto;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #BEBEBE;
+    background: url('images/upload_egg.png') no-repeat center center;
+    background-size: contain;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+.text-input {
+    display: block;
+    width: 100%;
+    max-width: 96%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+input[type="file"] {
+    display: none; /* Completely hide the file input */
+}
+.imagePreview {
+    width: 50%;
+    max-width: 50%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+}

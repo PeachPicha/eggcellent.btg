@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Selection - Egg Color Detection App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-frame">
+        <header class="app-header">
+            <img src="images/Button_1_Eggshell.png" alt="eggshell Logo" class="eggshell-logo">
+        </header>
+
+        <main class="app-content">
+            <div class="form-container">
+                <!-- Input for Farm -->
+                <label for="farm-input">Enter Farm:</label>
+                <input type="text" id="farm-input" class="text-input" placeholder="Farm name">
+
+                <!-- Input for House -->
+                <label for="house-input">Enter House:</label>
+                <input type="text" id="house-input" class="text-input" placeholder="House number">
+        
+                <label for="textbox_3">Chicken Age:</label>
+                <div class="age-input-container">
+                    <input type="number" id="age-input" class="number-input" placeholder="Age">
+                    <span class="age-unit">Wks</span>
+                </div>
+            <!-- Add the Next button here -->
+            <button id="next-button_1" class="next-button_1">Next</button>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <p>© 2024 Betagro Agro Industry Co., Ltd.</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nextButton = document.getElementById('next-button_1');
+            nextButton.addEventListener('click', () => {
+                // Get input field values
+                const farmInput = document.getElementById('farm-input').value.trim();
+                const houseInput = document.getElementById('house-input').value.trim();
+                const ageInput = document.getElementById('age-input').value.trim();
+
+                // Check if any field is empty
+                if (!farmInput || !houseInput || !ageInput) {
+                    alert('Please fill in all fields before proceeding.');
+                    return;
+                }
+
+                // If all fields are filled, navigate to the next page
+                window.location.href = 'recommendeggshell.html';
+            });
+        });
+    </script>
+</body>
+</html>

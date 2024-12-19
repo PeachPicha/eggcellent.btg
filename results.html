@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eggshell Detection Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .result-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+        .result-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-card">
+        <!-- Uploaded image will be displayed here -->
+        <img id="uploaded-image" src="" alt="Uploaded Egg Image">
+    </div>
+
+    <script>
+        // Retrieve the base64 image from the query string
+        const params = new URLSearchParams(window.location.search);
+        const imgSrc = params.get('image');
+
+        // Display the image on the page
+        if (imgSrc) {
+            document.getElementById('uploaded-image').src = imgSrc;
+        } else {
+            document.getElementById('uploaded-image').alt = 'No image uploaded';
+        }
+        // Retrieve data from query parameters
+        const params = new URLSearchParams(window.location.search);
+        const imgSrc = params.get('image');
+        const farmName = params.get('farm');
+        const houseName = params.get('house');
+        const age = params.get('age');
+        const score = params.get('score');
+
+        // Update the results page
+        document.getElementById('uploaded-image').src = imgSrc;
+        document.getElementById('farm-name').innerText = `ฟาร์ม: ${farmName}`;
+        document.getElementById('house-info').innerText = `${houseName} - ${age} weeks`;
+        document.getElementById('score-display').innerText = score;
+
+        // Optionally, set the score color dynamically (if required)
+        const scoreColors = {
+            1: '#e0b084',
+            2: '#d59669',
+            3: '#c97b4e',
+            4: '#bc6134',
+            5: '#af481a',
+            6: '#9d3d14',
+            7: '#8b310d',
+            8: '#772708'
+        };
+        document.getElementById('score-display').style.backgroundColor = scoreColors[score] || '#b57f4e';
+    </script>
+</body>
+</html>
