@@ -78,8 +78,10 @@ button:hover {
     cursor: pointer;
 }
 .app-frame {
-    width: 92%; /* Set width to 1440px */
-    height: 75%; /* Set height to 3120px */
+    width: 92%; /* Use a percentage to adjust width dynamically */
+    max-width: 1440px; /* Prevent the frame from becoming too wide on larger screens */
+    height: 75vh; /* Use viewport height for dynamic height */
+    max-height: 90%; /* Prevent the frame from exceeding the viewport */
     background-color: #ffffff;
     border: 1px solid #BEBEBE;
     border-radius: 10px;
@@ -87,7 +89,20 @@ button:hover {
     overflow: hidden;
     text-align: left;
     padding: 20px;
-    margin: 0 auto; /* Center the frame horizontally within the viewport */
+    margin: 0 auto; /* Center the frame horizontally */
+}
+@media (max-width: 768px) {
+    .app-frame {
+        width: 95%; /* Adjust for smaller screens */
+        height: auto; /* Allow height to adjust naturally to content */
+        padding: 15px; /* Reduce padding on smaller devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .app-frame {
+        padding: 10px; /* Further reduce padding for very small screens */
+    }
 }
 h1 {
     color: #D4AC0D; /* Change text color to #D4AC0D */
