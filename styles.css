@@ -78,7 +78,7 @@ button:hover {
     cursor: pointer;
 }
 .app-frame {
-    width: 20%; /* Set width to 1440px */
+    width: 92%; /* Set width to 1440px */
     height: 75%; /* Set height to 3120px */
     background-color: #ffffff;
     border: 1px solid #BEBEBE;
